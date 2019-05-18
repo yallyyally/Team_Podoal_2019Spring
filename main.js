@@ -2,12 +2,27 @@ var express = require('express')
 var app = express()
 var ejs = require('ejs')
 var bodyParser = require('body-parser');
+/*사진*/
+var multer = require('multer'); // multer모듈 적용 (for 파일업로드)
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/') // cb 콜백함수를 통해 전송된 파일 저장 디렉토리 설정
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname) // cb 콜백함수를 통해 전송된 파일 이름 설정
+  }
+})
+var upload = multer({ storage: storage })
 
+var upload = multer({ storage: storage })
+/******/
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 /*데이터 베이스 연결 */
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://computer0:computer0@ds115263.mlab.com:15263/mtree', { useNewUrlParser: true });
+
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -16,6 +31,23 @@ db.once('open', function () {
 });
 
 var free = require('./models/boardSchema');
+
+/*사진*/
+app.get('/board2', function(req, res){
+  res.render('board2.ejs');
+});
+
+app.get('/uploads', function(req, res){
+  res.render('uploads.ejs');
+});
+
+app.post('/uploads', upload.single('userfile'), function(req, res){
+  //alert('Uploaded! : '+req.file); // object를 리턴함
+  console.log(req.file); // 콘솔(터미널)을 통해서 req.file Object 내용 확인 가능.
+  res.redirect('/board2');
+});
+
+/******/
 
 //board1-1
 app.get('/', function (req, res) {
@@ -46,6 +78,7 @@ app.get('/board1-2/:id', function (req, res) {
     })
   })
 })
+
 
 //board4
 app.get('/board4', function (req, res) {
