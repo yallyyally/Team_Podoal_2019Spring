@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>MIRO STORY</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
+  <!-- 제목 글씨체 -->
+</head>
+
+<body>
+    <br>
+    <div style="display: flex; flex-direction : column; ">
+      <br>
+      <div style="display: flex; justify-content:flex-end;">
+        <div style="font-style: italic; font-size: 5.0em; line-height: 1.0em; font-family: 'Nanum Pen Script', cursive; color: black; margin: 0px 300px 0px 0px;">쓰기</div>
+    </div>
+
+   <div class="container" style="display: flex; flex-direction : row; justify-content:space-evenly; ">
+    <form style="float: left; margin-top: 20px; margin-left: 10px;" id="formtag" method="post" action="/">
+      <div style="width: 700px;" class="form-group">
+        <label style="font-family: 'Black Han Sans', sans-serif; font-size:30px;">글쓰기</label>
+        <hr>
+        <input class="form-control" id="exampleFormControlInput1" placeholder="제목을 입력해 주세요" name="title" required>
+      </div>
+
+      <div class="form-group" style="width:700px;">
+        <textarea style="resize: none" class="form-control" placeholder="내용을 입력해 주세요" rows="20" name="content" required></textarea>
+        <!-- style"resize: none": 텍스트 크기 조절 방지 -->
+
+        <div style="float: right; margin-top: 50px; margin-bottom: 20px;">
+          <a href="#" onClick="document.getElementById('formtag').submit()" class="btn btn-outline-dark">완료</a >
+          <a href="/" class="btn btn-outline-dark">목록으로</a>
+        </div>
+      </div>
+    </form>
+  
+  </div>
+  </div>
+</body>
+
+</html>

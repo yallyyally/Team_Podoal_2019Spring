@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>rewrite</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
+  <!-- 제목 글씨체 -->
+</head>
+
+<body>
+        <br>
+        <div style="display: flex; flex-direction : column; ">
+
+          <br>
+          <div style="display: flex; justify-content:flex-end;">
+            <div style="font-style: italic; font-size: 5.0em; line-height: 1.0em; font-family: 'Nanum Pen Script', cursive; color: black; margin: 0px 300px 0px 0px;">수정하기</div>
+          </div>
+
+      <div style="width: 85%">
+        <hr>
+        <form style="float: left; margin-top: 20px; margin-left: 10px;" id="formtag" method="post" action="/rewrite/<%= result._id%>">
+        <div style="width: 700px;" class="form-group">
+          <div class="form-group">
+            <label style="font-family: 'Black Han Sans', sans-serif; font-size:30px;">수정하기</label>
+            <br>
+            <label style="font-family: 'Black Han Sans', sans-serif; font-size:20px;" for="exampleFormControlInput1"></label>
+            <input type="text" name="inputTitle" class="form-control" id="exampleFormControlInput1" value="<%=result.title%>">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1" style="font-family: 'Black Han Sans', sans-serif; font-size:20px;"></label>
+            <textarea class="form-control" name="inputContent" id="exampleFormControlTextarea1" rows="20"><%=result.content%></textarea>
+          </div>
+          <div style="float: right; margin-top: 50px; margin-bottom: 20px;">
+          <a href="/" class="btn btn-outline-dark">목록으로</a>
+          <a href="#" onClick="document.getElementById('formtag').submit()" class="btn btn-outline-dark">완료</a >
+          </div>
+        </div>
+        </form>
+        </div>
+
+
+
+
+  </div>
+
+</body>
+
+</html>

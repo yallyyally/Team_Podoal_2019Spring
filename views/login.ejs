@@ -1,0 +1,42 @@
+<!-- //login.ejs -->
+
+<!doctype html>
+<html style="height:100%">
+
+<head>
+  <title>미로게시판</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+    crossorigin="anonymous">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body style="height:100%">
+
+  <div style="display: flex; justify-content: center; align-items: center; height:100%;">
+
+    <div class="container" style="width:300px;  height: 350px; border: 2px #c6c6c6 solid; display: flex; flex-direction: column; justify-content: center">
+      <div style="display: flex; justify-content:center; font-size: 2.5em;">LOGIN</div>
+      <hr />
+      <form method="post" action="/login" id="login">
+        <div class="input-field col s6">
+            <input id="id" type="text" class="validate" name="id">
+            <label for="last_name">ID</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="pw" type="text" class="validate" name="pw">
+            <label for="pw">password</label>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="document.getElementById('login').submit">로그인</button>
+        <div style="margin-top: 15px; font-family: sans-serif"><a href="/signUp">ID가 없으시다구요?<a></div>
+      </form>
+      
+    </div>
+  </div>
+</body>
+
+</html>
