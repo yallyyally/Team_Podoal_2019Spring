@@ -20,9 +20,14 @@
                 <li><a href="/board4">더치페이</a></li>
             </ul>
         </div>
-        
         <div class="container" style='margin-top:20px'>
-            돈 계산할 일이 없습니다 ^^
+                <% for(var i=files.length-1; i >= 0; i--){ %>
+                <img src="<%= files[i] %>" alt="사진" height="50%" width="50%">
+                <br>
+                <% }%>
+        </div>
+        <div class="container" style='margin-top:20px'>
+            <button><a href="/uploads">post</a></button>
         </div>
     </div>
 </body>
