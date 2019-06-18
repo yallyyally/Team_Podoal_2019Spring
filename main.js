@@ -41,6 +41,7 @@ const upload = multer({
 var Free = require('./models/free');
 var User = require('./models/user');
 var Picture = require('./models/picture');
+var Memo = require('./models/memo');
 
 /*로그인 유지 */
 var session = require('express-session')
@@ -214,6 +215,26 @@ app.post('/uploads', upload.single('userfile'), function (req, res) {
 });
 
 */
+
+
+///일정게시판///
+app.get('/plan', function (req, res) {
+  Memo.find({}, function (err, results) {
+    if (err) throw err;
+    res.render('plan.ejs', { boards: results, user: req.session.user });
+  });
+})
+app.post('/plan', function (req, res) {
+  var board = new Free({
+    content: req.body.content
+  });
+  board.save(function (err) {
+    if (err) return console.error(err);
+
+  });
+  res.redirect('/');
+});
+
 ///// 팝업 //////
 app.get('/popup_free', function (req, res) {
   res.render('popup_free.ejs');
