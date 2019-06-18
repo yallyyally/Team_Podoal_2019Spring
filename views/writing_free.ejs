@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>project_blog</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
+  <!-- 제목 글씨체 -->
+  <script language="javascript">
+    function showConfirm_notice() {
+      window.open("/popup_notice", "confirm", "width=300, height=80, left=500, top=200");
+    }
+    function showConfirm_class() {
+      window.open("/popup_class", "confirm", "width=300, height=80, left=500, top=200");
+    }
+    function showConfirm_free() {
+      window.open("/popup_free", "confirm", "width=300, height=80, left=500, top=200");
+    }
+    function showConfirm_anony() {
+      window.open("/popup_anony", "confirm", "width=300, height=80, left=500, top=200");
+    }
+  </script>
+
+</head>
+
+<body>
+  
+  <div style="display: flex; flex-direction : row ; justify-content: flex-end; margin-right: 50px;">
+    <div style="display: flex; flex-direction: row; ">
+      <%if(user !== undefined){%>
+      <div style="display: flex; flex-direction: row; justify-content: flex-end; margin: 10px 30px 0px 0px; ">
+        <div
+          style="font-style: italic; font-size: 2.0em; line-height: 1.0em; font-family: 'Nanum Pen Script', cursive; color: black; margin-right: 30px;">
+          <%=user%> 님, 환영합니다
+        </div>  
+      <form method="post" action="logout" id="logout"></form>
+      <span
+        style="font-style: italic; font-size: 2.0em; line-height: 1.0em; font-family: 'Nanum Pen Script', cursive; color:black; cursor: pointer; margin-right: 50px;"
+        onclick="document.getElementById('logout').submit()">로그아웃</span>
+      </div>
+      <%}else{%>
+      <div
+        style="text-align:right;margin-right: 10%;cursor: pointer;font-style: italic; font-size: 2.0em; line-height: 1.0em; font-family: 'Nanum Pen Script', cursive; color: black; width: 100px">
+        <a href="/login">로그인</a></div>
+      <div
+        style="text-align:right;margin-right: 10%;cursor: pointer;font-style: italic; font-size: 2.0em; line-height: 1.0em; font-family: 'Nanum Pen Script', cursive; color: black;  width: 100px">
+        <a href="/signUp">회원가입</a></div>
+      <%}%>
+    </div>
+  </div>
+
+  <br>
+
+  <div style="font-style: italic; font-size: 5.0em; line-height: 1.0em; font-family: 'Nanum Pen Script', cursive; color: black; margin: 0px 300px 0px 0px;">자유게시판</div>
+
+
+  <div class="container" style="display: flex; flex-direction : row; justify-content:space-evenly; ">
+    <div style="width: 15%; flex-direction: column; float: left; margin-top:50px;">
+      <a href="#" onclick="showConfirm_free(); return false;"><div style="cursor: pointer;font-style: italic; font-size: 2.0em; line-height: 1.0em; font-family: 'Nanum Pen Script', cursive; color: black; margin-bottom: 30px">자유게시판</div></a>
+    </div>
+
+    <form id="formtag" method="post" action="/writing_free">
+      <div style="width: 700px;" class="form-group">
+        <label style="font-family: 'Black Han Sans', sans-serif; font-size:30px;">글쓰기</label>
+        <hr>
+        <input class="form-control" id="exampleFormControlInput1" placeholder="제목을 입력해 주세요" name="title" required>
+      </div>
+
+      <div class="form-group" style="width:700px;">
+        <textarea class="form-control" name="content" id="content" rows="20"></textarea>
+
+        <div style="float: right; margin-top: 50px; margin-bottom: 20px;">
+          <a href="#" onClick="document.getElementById('formtag').submit()" class="btn btn-outline-dark">완료</a >
+          <a href="#" onclick="showConfirm_free(); return false;" class="btn btn-outline-dark">목록으로</a>
+        </div>
+      </div>
+    </form>
+  
+  </div>
+</body>
+
+</html>

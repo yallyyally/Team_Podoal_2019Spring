@@ -1,10 +1,10 @@
-<!-- //login.ejs -->
+<!-- //signUp.ejs -->
 
 <!doctype html>
 <html style="height:100%">
 
 <head>
-  <title>project_blog</title>
+  <title>미로게시판</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
     crossorigin="anonymous">
 
@@ -20,9 +20,9 @@
   <div style="display: flex; justify-content: center; align-items: center; height:100%;">
 
     <div class="container" style="width:300px;  height: 350px; border: 2px #c6c6c6 solid; display: flex; flex-direction: column; justify-content: center">
-      <div style="display: flex; justify-content:center; font-size: 2.5em;">LOGIN</div>
-      <hr>
-      <form method="post" action="/login" id="login">
+      <div style="display: flex; justify-content:center; font-size: 2.5em;">SIGNUP</div>
+      <hr />
+      <form method="post" action="/signUp">
         <div class="input-field col s6">
             <input id="id" type="text" class="validate" name="id">
             <label for="last_name">ID</label>
@@ -31,8 +31,7 @@
             <input id="pw" type="text" class="validate" name="pw">
             <label for="pw">password</label>
         </div>
-        <button type="submit" class="btn btn-primary" onclick="document.getElementById('login').submit">로그인</button>
-        <div style="margin-top: 15px; font-family: sans-serif"><a href="/signUp">ID가 없으시다구요?<a></div>
+        <button type="submit" class="btn btn-primary" onclick="document.getElementById('login').submit">확인</button>
       </form>
       
     </div>
@@ -40,3 +39,29 @@
 </body>
 
 </html>
+<!-- 회원가입
+
+<!doctype html>
+<html>
+<head>
+  <title>미로게시판</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container" >
+    <label>SIGN UP</label>
+    <hr/>
+    <form method="post" action="/signUp">
+      <div class="form-group">
+        <label>ID</label>
+        <input name="id" class="form-control" placeholder="Enter ID"required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input name="pw" type="password" class="form-control" placeholder="Password"required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</body>
+</html> -->
