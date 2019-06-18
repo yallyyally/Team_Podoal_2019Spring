@@ -266,7 +266,8 @@ app.post("/destroy_free/:id", function(req,res){
   })
 })
 app.post("/destroy_picture/:id", function(req,res){
-  Picture.findOne({ id: req.body.id }, function (err, p){
+  console.log(req.params.id +"\t"+req.params.id);
+  Picture.findOne({_id: req.params.id}, function (err, p){
     fs.unlink('./uploads/'+p.title, function (err) {
       if (err) throw err;
       console.log('./uploads/'+p.title+' successfully deleted');
