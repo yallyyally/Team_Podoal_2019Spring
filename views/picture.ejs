@@ -60,25 +60,21 @@
                         <% for(var i=files.length-1; i >= 0; i--){ %>
                         <tr>
                             <img src="<%= files[i] %>" alt="사진" height="30%" width="30%"> 
-                            <%= boards[i].content%>
-                            <form method="post" action="/destroy_picture/<%=boards[i]._id%>" id="delete"></form>
-                            <%if(user == boards[i].author) {%>
-                            <a style="color:black;cursor: pointer; margin-right: 10px;" onclick="document.getElementById('delete').submit()">삭제</span>
-                            <%}%>
+                            <%=boards[i].content%><br>
+                            <form method="post" action="/destroy_picture/<%=boards[i].id%>" id="delete"></form>
                             <br>
                         </tr>
                         <% }%>
                     </tbody>
-                
                 </table>
             </div>
-
-
         </div>
     </div>
     <div style="margin-right: 250px">
             <% if(user) { %>
             <a href="/uploads" style="font-style: italic; font-size: 2.2em; line-height: 1.0em; font-family: 'Nanum Pen Script', cursive; color: black; margin-right: 30px; float:right">post</a>
+            <a style="font-style: italic; font-size: 2.2em; line-height: 1.0em; font-family: 'Nanum Pen Script', cursive; color: black; margin-right: 30px; float:right"
+            onclick="document.getElementById('delete').submit()">정리하기</a>
             <%}%>
     </div>
 </body>
