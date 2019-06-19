@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>포도알</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gaegu:400,700&display=swap&subset=korean" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet">
+  <!-- 제목 글씨체 -->
+  <script language="javascript">
+    function showConfirm_notice() {
+      window.open("/popup_notice", "confirm", "width=300, height=80, left=500, top=200");
+    }
+    function showConfirm_class() {
+      window.open("/popup_class", "confirm", "width=300, height=80, left=500, top=200");
+    }
+    function showConfirm_free() {
+      window.open("/popup_free", "confirm", "width=300, height=80, left=500, top=200");
+    }
+    function showConfirm_anony() {
+      window.open("/popup_anony", "confirm", "width=300, height=80, left=500, top=200");
+    }
+
+  </script>
+</head>
+
+<body>
+  <br>
+  <div style="display: flex; flex-direction : column; ">
+    <div style="display: flex; flex-direction : row ; justify-content: flex-end; margin-right: 50px;">
+      <div style="display: flex; flex-direction: row; ">
+        <%if(user !== undefined){%>
+        <div style="display: flex; flex-direction: row; justify-content: flex-end; margin: 10px 30px 0px 0px; ">
+          <div
+            style="font-style: italic; font-size: 2.0em; line-height: 1.0em;font-family: 'Jua', sans-serif; color: black; margin-right: 30px;">
+            <%=user%> 님, 환영합니다
+          </div>
+          <!-- <form method="post" action='logout'><button style="float:right" class="btn" type="submit;">로그오프</button></form> -->
+          <form method="post" action="logout" id="logout"></form>
+          <span
+            style="font-style: italic; font-size: 2.0em; line-height: 1.0em; font-family: 'Jua', sans-serif; color:black; cursor: pointer; margin-right: 50px;"
+            onclick="document.getElementById('logout').submit()">로그아웃</span>
+        </div>
+        <%}else{%>
+        <div
+          style="text-align:right;margin-right: 10%;cursor: pointer;font-style: italic; font-size: 1.5em; line-height: 1.0em;font-family: 'Jua', sans-serif; color: black; width: 100px">
+          <a href="/login">로그인</a></div>
+        <div
+          style="text-align:right;margin-right: 5%;cursor: pointer;font-style: italic; font-size: 1.3em; line-height: 1.0em; font-family: 'Jua', sans-serif; color: black;  width: 100px">
+          <a href="/signUp">회원가입</a></div>
+        <%}%>
+            </div>
+          </div>
+          <br>
+          <div style="display: flex; justify-content:flex-end;">
+            <div style="font-size: 5.0em; line-height: 1.0em;font-family: 'Jua', sans-serif;color: black; margin: 0px 300px 0px 0px;">자유게시판</div>
+          </div>
+          <div class="container" style="display: flex; flex-direction : row; justify-content:space-evenly; ">
+            <div style="margin-left : 30px; width: 20%; flex-direction: column">
+              <a href="/"><img
+                  src="https://66.media.tumblr.com/8b2be85dcffb0265313bf7490c4572f2/tumblr_ptba20zwyy1yqc3oco1_540.jpg"
+                  alt="https://66.media.tumblr.com/8b2be85dcffb0265313bf7490c4572f2/tumblr_ptba20zwyy1yqc3oco1_540.jpg"
+                  style="height:100px; ;margin: 0px px 0px 0px;"></a>
+              <a href="#" onclick="showConfirm_notice(); return false">
+                <div
+                  style="cursor: pointer;font-style: italic; font-size: 2.0em; line-height: 1.0em;font-family: 'Jua', sans-serif;; color: black; margin-bottom: 30px; margin-top: 70px">
+                  공지사항</div>
+              </a>
+              <a href="#" onclick="showConfirm_class(); return false">
+                <div
+                  style="cursor: pointer;font-style: italic; font-size: 2.0em; line-height: 1.0em;font-family: 'Jua', sans-serif;color: black; margin-bottom: 30px">
+                  수업게시판</div>
+              </a>
+              <a href="#" onclick="showConfirm_free(); return false">
+                <div
+                  style="cursor: pointer;font-style: italic; font-size: 2.0em; line-height: 1.0em;font-family: 'Jua', sans-serif; color: black; margin-bottom: 30px">
+                  자유게시판</div>
+              </a>
+              <a href="#" onclick="showConfirm_anony(); return false">
+                <div
+                  style="cursor: pointer;font-style: italic; font-size: 2.0em; line-height: 1.0em; font-family: 'Jua', sans-serif; color: black; margin-bottom: 30px">
+                  마음의소리</div>
+              </a>
+            </div>
+
+      <div style="width: 80%">
+        <img src="https://66.media.tumblr.com/ae2f494ae7663d3ab561ba3373fd36c8/tumblr_phvggwg8Ee1xm8ub5o1_1280.jpg" alt="https://66.media.tumblr.com/ae2f494ae7663d3ab561ba3373fd36c8/tumblr_phvggwg8Ee1xm8ub5o1_1280.jpg"
+          style="width:800px;height:10px; margin-right: 100px">
+        <form style="float: left; margin-top: 20px; margin-left: 10px;" id="formtag" method="post" action="/rewrite_free/<%=result._id%>">
+        <div style="width: 700px;" class="form-group">
+          <div class="form-group">
+            <label style="font-family: 'Black Han Sans', sans-serif; font-size:30px;">수정하기</label>
+            <br>
+            <label style="font-family: 'Black Han Sans', sans-serif; font-size:20px;"
+              for="exampleFormControlInput1"></label>
+            <input type="text" name="inputTitle" class="form-control" id="exampleFormControlInput1"
+              value="<%=result.title%>">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1"
+              style="font-family: 'Black Han Sans', sans-serif; font-size:20px;"></label>
+            <textarea class="form-control" name="inputContent" id="exampleFormControlTextarea1"
+              rows="20"><%=result.content%></textarea>
+          </div>
+
+
+
+          <div style="float: right; margin-top: 50px; margin-bottom: 20px;">
+            <a href="#" onclick="showConfirm_free(); return false" class="btn btn-outline-dark">목록으로가기</button></a>
+            <a href="#" onclick="document.getElementById('formtag').submit()"
+              class="btn btn-outline-dark">수정하기</button></a>
+          </div>
+        </div>
+        </form>
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+</body>
+
+</html>

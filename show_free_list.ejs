@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>포도알</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gaegu:400,700&display=swap&subset=korean" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.3/jquery.timeago.js"></script>
+
+</head>
+
+<body>
+        <br>
+        <div style="display: flex; flex-direction : column; ">
+            <div style="display: flex; flex-direction : row ; justify-content: flex-end; margin-right: 50px;">
+                <div style="display: flex; flex-direction: row; ">
+                    <%if(user !== undefined){%>
+                    <div style="display: flex; flex-direction: row; justify-content: flex-end; margin: 10px 30px 0px 0px; ">
+                        <div style="font-style: italic; font-size: 2.0em; line-height: 1.0em;font-family: 'Jua', sans-serif;color: purple; margin-right: 30px;">
+                            <%=user%> 님, 환영합니다
+                        </div>
+                        <!-- <form method="post" action='logout'><button style="float:right" class="btn" type="submit;">로그오프</button></form> -->
+                        <form method="post" action="logout" id="logout"></form>
+                        <span style="font-style: italic; font-size: 2.0em; line-height: 1.0em;font-family: 'Jua', sans-serif;color:black; cursor: pointer; margin-right: 50px;"
+                            onclick="document.getElementById('logout').submit()">로그아웃</span>
+                    </div>
+                    <%}else{%>
+                    <div style="text-align:right;margin-right: 10%;cursor: pointer;font-style: italic; font-size: 1.5em; line-height: 1.0em; font-family: 'Jua', sans-serif; color: black; width: 100px"><a
+                            href="/login">로그인</a></div>
+                    <div style="text-align:right;margin-right: 5%;cursor: pointer;font-style: italic; font-size: 1.3em; line-height: 1.0em; font-family: 'Jua', sans-serif; color: black;  width: 100px"><a
+                            href="/signUp">회원가입</a></div>
+                    <%}%>
+                </div>
+            </div>
+            <br>
+            <div style="display: flex; justify-content:flex-end;">
+            <div style="text-shadow: 5px 5px 8px #666666;font-size: 5.0em; line-height: 1.0em;font-family: 'Jua', sans-serif;color: black; margin: 0px 300px 0px 0px; float:right">자유게시판</div>
+            </div>
+            <div class="container" style="display: flex; flex-direction : row; justify-content:space-evenly; ">
+                <div style="width: 20%; flex-direction: column">
+                    <a href="/"><img src="https://66.media.tumblr.com/8b2be85dcffb0265313bf7490c4572f2/tumblr_ptba20zwyy1yqc3oco1_540.jpg"
+                        alt="https://66.media.tumblr.com/8b2be85dcffb0265313bf7490c4572f2/tumblr_ptba20zwyy1yqc3oco1_540.jpg"
+                        style="height:100px; margin: 0px 0px 0px 0px;"></a>
+                    <a href="/free_list">
+                        <div style="cursor: pointer; font-size: 2.0em; line-height: 1.0em; font-family: 'Jua', sans-serif;color: black; margin-bottom: 30px">자유게시판</div>
+                    </a>
+                    <a href="/picture">
+                        <div style="cursor: pointer; font-size: 2.0em; line-height: 1.0em;font-family: 'Jua', sans-serif;color: black; margin-bottom: 30px">사진게시판</div>
+                    </a>
+                    <a href="/plan">
+                        <div style="cursor: pointer;font-size: 2.0em; line-height: 1.0em;font-family: 'Jua', sans-serif;color: black; margin-bottom: 30px">일정게시판</div>
+                    </a>
+                    <a href="/pay">
+                        <div style="cursor: pointer; font-size: 2.0em; line-height: 1.0em;font-family: 'Jua', sans-serif;color: black; margin-bottom: 30px">더치페이</div>
+                    </a>
+                </div>
+    
+    <%if (result !== undefined) {%>
+
+    <div class="container">
+        <h2 style = "text-align: left;">
+            <%=result.title%>
+        </h2>
+        <div style="text-align : right">
+            <td>
+                <time style="font-family: 'Black Han Sans', sans-serif; font-size:15px;" class="timeago" datetime="<%=result.created_at%>"></time>
+            </td>
+            <p style="font-family: 'Black Han Sans', sans-serif; font-size:15px;">조회 수 :
+                <%=result.hits%>
+            </p>
+
+
+
+        </div>
+        <br>
+        <div style="min-height: 300px;">
+            <p style="text-align: left; ">
+                <%=result.content%>
+            </p>
+        </div>
+        <div style="text-align:right; display: flex; flex-direction : column;">
+                <form method="post" action="/free_like/<%=result._id%>" id="like">
+                    <i style="cursor: pointer" onclick="document.getElementById('like').submit()" class="material-icons md-36">
+                        thumb_up
+                    </i> 좋아요 :
+                    <%=result.like%>
+                </form>
+            </div>
+                <div style="text-align:right; display: flex; flex-direction : row; justify-content: flex-end;">
+          
+                <form method="post" action="/destroy_free/<%=result._id%>" id="delete"></form>
+                <div style="text-align:right; display: flex; flex-direction : row; justify-content: flex-end;">
+                <%if(user == result.author) {%>
+                <a href="/rewrite_free/<%=result._id%>"><span style="color:black; margin-left: 15px;margin-right: 10px;">수정</span></a>
+
+                <span style="color:black;cursor: pointer; margin-right: 10px;" onclick="document.getElementById('delete').submit()">삭제</span>
+                <%}%>
+                <a href='/free_list'><span span style="color:black; ">목록으로</span></a>
+            </div>
+            </div>
+
+        </div>
+        </form>
+    </div>
+
+    <% } %>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $("time.timeago").timeago();
+        });
+    </script>
+</body>
+
+</html>
